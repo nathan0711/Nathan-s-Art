@@ -1,0 +1,148 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: black;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .moon {
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 
+        0 0 50px rgba(255, 255, 100, 0.5), /* Outer glow */
+        inset -10px -10px 20px rgba(0, 0, 0, 0.3); /* Inner shadow for depth */
+    z-index: 2; /* Keeps moon above the stars */
+}
+
+  .sky {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; /* Behind the moon */
+}
+
+
+
+  .crater {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3); /* Dark grey */
+    border-radius: 50%;
+    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.5);
+    z-index: 3; /* Above the moon */
+    opacity: 0.8; /* Slightly transparent for depth */
+}
+
+.crater:nth-child(1) { width: 30px; height: 30px; top: 40px; left: 50px; }
+.crater:nth-child(2) { width: 20px; height: 20px; top: 90px; left: 120px; }
+.crater:nth-child(3) { width: 40px; height: 40px; top: 140px; left: 60px; }
+.crater:nth-child(4) { width: 25px; height: 25px; top: 20px; left: 120px; }
+
+
+
+
+  .stars {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 5px white; /* Makes stars glow */
+  }
+
+  .stars:nth-child(1) { top: 10%; left: 20%; }
+  .stars:nth-child(2) { top: 30%; left: 80%; }
+  .stars:nth-child(3) { top: 50%; left: 60%; }
+  .stars:nth-child(4) { top: 70%; left: 40%; }
+  .stars:nth-child(5) { top: 90%; left: 10%; }
+  .stars:nth-child(6) { top: 15%; left: 90%; }
+  .stars:nth-child(7) { top: 75%; left: 80%; }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  
+  .stars {
+    animation: twinkle 2s infinite alternate;
+  }
+
+  .form-container {
+    width: 80%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 50vh;
+    z-index: 4;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-size: 1rem;
+    color: white;
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: white;
+    background: darkblue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: lightblue;
+}
+
+/* === Responsive Design === */
+@media screen and (max-width: 1024px) {
+    .moon {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .form-container {
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .moon {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .form-container {
+        max-width: 250px;
+    }
+}
